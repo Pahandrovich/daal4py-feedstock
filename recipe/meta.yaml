@@ -24,7 +24,7 @@ requirements:
     - python
     - setuptools
     - numpy
-    - daal-devel ==2021.1
+    - dal-devel ==2021.1
     - cython
     - jinja2
     - mpich      # [not win]
