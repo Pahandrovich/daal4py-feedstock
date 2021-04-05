@@ -31,7 +31,7 @@ requirements:
     - clang-tools
   run:
     - python
-    - daal ==2021.1
+    - dal ==2021.1
     - {{ pin_compatible('numpy') }}
 
 test:
