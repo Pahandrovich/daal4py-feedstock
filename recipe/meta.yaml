@@ -26,6 +26,7 @@ requirements:
     - jinja2
     - mpich      # [not win]
     - clang-tools
+    - wget
   run:
     - python
     - dal ==2021.1.1
