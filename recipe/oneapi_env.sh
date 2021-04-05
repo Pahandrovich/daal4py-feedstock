@@ -37,10 +37,6 @@ function install_dpcpp {
     sudo mv -f /opt/intel/oneapi/compiler/latest/linux/lib/oclfpga /opt/intel/oneapi/compiler/latest/linux/lib/oclfpga_
 }
 
-function install_mkl {
-    sudo apt-get install intel-oneapi-mkl-devel
-}
-
 add_repo
 install_dpcpp
 

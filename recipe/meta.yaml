@@ -12,9 +12,6 @@ build:
   skip: true  # [osx]
   number: {{ buildnumber }}
   include_recipe: false
-  script: |
-    oneapi_env.sh
-    build.sh  
 
 requirements:
   build:
@@ -56,7 +53,7 @@ test:
     - python -m daal4py examples/sycl/sklearn_sycl.py
 
 about:
-  home: https://intel.github.io/scikit-learn-intelex/
+  home: https://intelpython.github.io/daal4py/
   license: Apache-2.0
   license_file:
     - LICENSE
