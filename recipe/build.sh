@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source oneapi_env.sh
+BASEDIR=$(dirname "$0")
+source $BASEDIR/oneapi_env.sh
 
 if [ "$PY3K" == "1" ]; then
     ARGS="--single-version-externally-managed --record=record.txt"
