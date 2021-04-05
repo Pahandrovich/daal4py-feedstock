@@ -1,4 +1,4 @@
-{% set version = "2021.2" %}
+{% set version = "2021.1" %}
 {% set buildnumber = 0 %}
 
 package:
@@ -24,14 +24,14 @@ requirements:
     - python
     - setuptools
     - numpy
-    - dal-devel ==2021.2
+    - dal-devel ==2021.1.1
     - cython
     - jinja2
     - mpich      # [not win]
     - clang-tools
   run:
     - python
-    - dal ==2021.2
+    - dal ==2021.1.1
     - {{ pin_compatible('numpy') }}
 
 test:
