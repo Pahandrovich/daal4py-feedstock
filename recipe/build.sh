@@ -16,7 +16,10 @@ mv /tmp/oneAPI.repo $(dirname "$0")/
 
 echo "ls -la \$(dirname \$0)"
 ls -la $(dirname "$0")
-export DPCPPROOT=$(dirname "$0")/oneapi/compiler/latest
+echo "ls -la \$(dirname \$0)/oneAPI.repo"
+ls -la $(dirname "$0")/oneAPI.repo
+
+export DPCPPROOT=$(dirname "$0")/oneAPI.repo/compiler/latest
 
 # args definition
 if [ "$PY3K" == "1" ]; then
