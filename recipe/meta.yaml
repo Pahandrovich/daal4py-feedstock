@@ -14,6 +14,7 @@ build:
   - PATH
   number: {{ buildnumber }}
   include_recipe: false
+  script: build-daal4py.sh  # [not win]
 
 requirements:
   build:
