@@ -19,8 +19,11 @@ ls -la $(dirname "$0")
 echo $(dirname "$0")/oneAPI.repo
 ls -la $(dirname "$0")/oneAPI.repo
 
-echo "/home/conda/feedstock_root/build_artifacts/daal4py_1617913281694/work/oneAPI.repo"
-ls -la /home/conda/feedstock_root/build_artifacts/daal4py_1617913281694/work/oneAPI.repo
+echo "/home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo"
+ls -la /home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo
+
+echo "oneAPI.repo"
+ls -la oneAPI.repo
 
 export DPCPPROOT=$(dirname "$0")/oneAPI.repo/compiler/latest
 
