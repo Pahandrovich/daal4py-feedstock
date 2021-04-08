@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # create dpcpp environment
-echo "ls -la \$0"
-ls -la $0
+echo "ls -la \$(dirname \$0)"
+ls -la $(dirname "$0")
 tee > /tmp/oneAPI.repo << EOF
 [oneAPI]
 name=Intel(R) oneAPI repository
@@ -12,11 +12,11 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
 EOF
-mv /tmp/oneAPI.repo $0/
+mv /tmp/oneAPI.repo $(dirname "$0")/
 
-echo "ls -la \$0"
-ls -la $0
-export DPCPPROOT=$0/oneapi/compiler/latest
+echo "ls -la \$(dirname \$0)"
+ls -la $(dirname "$0")
+export DPCPPROOT=$(dirname "$0")/oneapi/compiler/latest
 
 # args definition
 if [ "$PY3K" == "1" ]; then
