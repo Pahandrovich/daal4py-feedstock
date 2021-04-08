@@ -1,32 +1,19 @@
 #!/bin/bash
 
 # create dpcpp environment
-function add_repo {
-    wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2023.PUB
-    apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2023.PUB
-    rm GPG-PUB-KEY-INTEL-SW-PRODUCTS-2023.PUB
-    echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.list.d/oneAPI.list
-    add-apt-repository -y "deb https://apt.repos.intel.com/oneapi all main"
-    apt-get update
-}
+tee > /tmp/oneAPI.repo << EOF
+[oneAPI]
+name=Intel(R) oneAPI repository
+baseurl=https://yum.repos.intel.com/oneapi
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+EOF
+mv /tmp/oneAPI.repo /etc/yum.repos.d/
 
-function install_dpcpp {
-    apt-get install                    \
-        intel-oneapi-common-vars            \
-        intel-oneapi-common-licensing       \
-        intel-oneapi-tbb-devel              \
-        intel-oneapi-dpcpp-cpp-compiler     \
-        intel-oneapi-dev-utilities          \
-        intel-oneapi-libdpstd-devel         \
-        cmake
-    bash -c 'echo libintelocl.so > /etc/OpenCL/vendors/intel-cpu.icd'
-    mv -f /opt/intel/oneapi/compiler/latest/linux/lib/oclfpga /opt/intel/oneapi/compiler/latest/linux/lib/oclfpga_
-}
-
-add_repo
-install_dpcpp
-
-export DPCPPROOT=/opt/intel/oneapi/compiler/latest
+ls -la /etc/yum.repos.d/
+export DPCPPROOT=/etc/yum.repos.d/oneapi/compiler/latest
 
 # args definition
 if [ "$PY3K" == "1" ]; then

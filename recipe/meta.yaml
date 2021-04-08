@@ -10,11 +10,8 @@ source:
   sha256: 50f5d274c953b67d419b15c65cb30d9774eea51fb3019fc07321f7e08e3f9274
 build:
   skip: true  # [osx]
-  script_env:
-  - PATH
   number: {{ buildnumber }}
   include_recipe: false
-  script: build-daal4py.sh  # [not win]
 
 requirements:
   build:
