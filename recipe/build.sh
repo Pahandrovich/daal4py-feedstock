@@ -16,8 +16,11 @@ mv /tmp/oneAPI.repo $(dirname "$0")/
 
 echo "ls -la \$(dirname \$0)"
 ls -la $(dirname "$0")
-echo "ls -la \$(dirname \$0)/oneAPI.repo"
+echo $(dirname "$0")/oneAPI.repo
 ls -la $(dirname "$0")/oneAPI.repo
+
+echo "/home/conda/feedstock_root/build_artifacts/daal4py_1617913281694/work/oneAPI.repo"
+ls -la /home/conda/feedstock_root/build_artifacts/daal4py_1617913281694/work/oneAPI.repo
 
 export DPCPPROOT=$(dirname "$0")/oneAPI.repo/compiler/latest
 
