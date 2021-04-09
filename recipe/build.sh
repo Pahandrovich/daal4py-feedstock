@@ -13,18 +13,17 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
 EOF
-mv /tmp/oneAPI.repo $BASEDIR/
+mv /tmp/oneAPI.repo /etc/yum.repos.d/
 
-echo "\$BASEDIR = $BASEDIR"
-ls -la $BASEDIR
-echo "\$BASEDIR = $BASEDIR/oneAPI.repo"
-ls -la $BASEDIR/oneAPI.repo/
+yum install intel-oneapi-common-vars        \
+        intel-oneapi-common-licensing       \
+        intel-oneapi-tbb-devel              \
+        intel-oneapi-dpcpp-cpp-compiler     \
+        intel-oneapi-dev-utilities          \
+        intel-oneapi-libdpstd-devel
 
-#echo "/home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo"
-#ls -la /home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo
-
-#echo "oneAPI.repo"
-#ls -la oneAPI.repo
+echo "ls -la /opt/intel/oneapi"
+ls -la /opt/intel/oneapi
 
 export DPCPPROOT=$BASEDIR/oneAPI.repo/compiler/latest
 
