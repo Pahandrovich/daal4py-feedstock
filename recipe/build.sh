@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # create dpcpp environment
-echo "ls -la \$(dirname \$0)"
-ls -la $(dirname "$0")
+BASEDIR=$(pwd)
+echo "\$BASEDIR = $BASEDIR"
+ls -la $BASEDIR
 tee > /tmp/oneAPI.repo << EOF
 [oneAPI]
 name=Intel(R) oneAPI repository
@@ -12,20 +13,20 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
 EOF
-mv /tmp/oneAPI.repo $(dirname "$0")/
+mv /tmp/oneAPI.repo $BASEDIR/
 
-echo "ls -la \$(dirname \$0)"
-ls -la $(dirname "$0")
-echo $(dirname "$0")/oneAPI.repo
-ls -la $(dirname "$0")/oneAPI.repo
+echo "\$BASEDIR = $BASEDIR"
+ls -la $BASEDIR
+echo "\$BASEDIR = $BASEDIR/oneAPI.repo"
+ls -la $BASEDIR/oneAPI.repo/
 
-echo "/home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo"
-ls -la /home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo
+#echo "/home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo"
+#ls -la /home/conda/feedstock_root/build_artifacts/daal4py_*/work/oneAPI.repo
 
-echo "oneAPI.repo"
-ls -la oneAPI.repo
+#echo "oneAPI.repo"
+#ls -la oneAPI.repo
 
-export DPCPPROOT=$(dirname "$0")/oneAPI.repo/compiler/latest
+export DPCPPROOT=$BASEDIR/oneAPI.repo/compiler/latest
 
 # args definition
 if [ "$PY3K" == "1" ]; then
