@@ -5,6 +5,8 @@ BASEDIR=$(pwd)
 echo "\$BASEDIR = $BASEDIR"
 ls -la $BASEDIR
 
+cat /etc/*elease
+
 mkdir $BASEDIR/toolkit
 mkdir $BASEDIR/toolkit/extract
 mkdir $BASEDIR/toolkit/install
