@@ -25,7 +25,7 @@ yum install intel-oneapi-common-vars        \
 echo "ls -la /opt/intel/oneapi"
 ls -la /opt/intel/oneapi
 
-export DPCPPROOT=$BASEDIR/oneAPI.repo/compiler/latest
+export DPCPPROOT=/opt/intel/oneapi/compiler/latest
 
 # args definition
 if [ "$PY3K" == "1" ]; then
