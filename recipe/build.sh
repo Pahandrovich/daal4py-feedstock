@@ -4,6 +4,7 @@
 BASEDIR=$(pwd)
 echo "\$BASEDIR = $BASEDIR"
 ls -la $BASEDIR
+yum install yum-utils
 tee > /tmp/oneAPI.repo << EOF
 [oneAPI]
 name=Intel(R) oneAPI repository
