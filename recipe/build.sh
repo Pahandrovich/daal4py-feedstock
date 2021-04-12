@@ -5,14 +5,14 @@ BASEDIR=$(pwd)
 echo "\$BASEDIR = $BASEDIR"
 ls -la $BASEDIR
 
-wget -O $BASEDIR/repo/l_BaseKit_p_2021.1.0.2659.sh https://registrationcenter-download.intel.com/akdlm/irc_nas/17431/l_BaseKit_p_2021.1.0.2659.sh 
-
 mkdir $BASEDIR/toolkit
 mkdir $BASEDIR/toolkit/extract
 mkdir $BASEDIR/toolkit/install
 mkdir $BASEDIR/toolkit/download
 
-bash $BASEDIR/repo/l_BaseKit_p_2021.1.0.2659.sh \
+wget -O $BASEDIR/toolkit/l_BaseKit_p_2021.1.0.2659.sh https://registrationcenter-download.intel.com/akdlm/irc_nas/17431/l_BaseKit_p_2021.1.0.2659.sh 
+
+bash $BASEDIR/toolkit/l_BaseKit_p_2021.1.0.2659.sh \
         -f $BASEDIR/toolkit/extract \
         --install-dir $BASEDIR/toolkit/install \
         --download-dir $BASEDIR/toolkit/download
