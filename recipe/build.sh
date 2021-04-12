@@ -13,14 +13,26 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
 EOF
-sudo mv /tmp/oneAPI.repo /etc/yum.repos.d/
+#mv /tmp/oneAPI.repo /etc/yum.repos.d/
+mv /tmp/oneAPI.repo $BASEDIR/repo
 
-yum install intel-oneapi-common-vars        \
+ls -la $BASEDIR/repo
+
+yumdownloader --repofrompath oneAPI.repo,$BASEDIR/repo \
+        --destdir $BASEDIR/repo/download \
+        intel-oneapi-common-vars            \
         intel-oneapi-common-licensing       \
         intel-oneapi-tbb-devel              \
         intel-oneapi-dpcpp-cpp-compiler     \
         intel-oneapi-dev-utilities          \
         intel-oneapi-libdpstd-devel
+
+#yum install intel-oneapi-common-vars        \
+#        intel-oneapi-common-licensing       \
+#        intel-oneapi-tbb-devel              \
+#        intel-oneapi-dpcpp-cpp-compiler     \
+#        intel-oneapi-dev-utilities          \
+#        intel-oneapi-libdpstd-devel
 
 echo "ls -la /opt/intel/oneapi"
 ls -la /opt/intel/oneapi
