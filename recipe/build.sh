@@ -14,7 +14,7 @@ wget -O $BASEDIR/toolkit/l_BaseKit_p_2021.1.0.2659.sh https://registrationcenter
 
 bash $BASEDIR/toolkit/l_BaseKit_p_2021.1.0.2659.sh -f $BASEDIR/toolkit/extract  -a --install-dir $BASEDIR/toolkit/install --download-dir $BASEDIR/toolkit/download
 
-
+ls -la $BASEDIR/toolkit/install
 
 #tee > /tmp/oneAPI.repo << EOF
 #[oneAPI]
