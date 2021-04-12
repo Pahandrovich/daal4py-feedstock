@@ -15,7 +15,7 @@ wget -O $BASEDIR/toolkit/l_BaseKit_p_2021.1.0.2659.sh https://registrationcenter
 bash $BASEDIR/toolkit/l_BaseKit_p_2021.1.0.2659.sh -f=$BASEDIR/toolkit/extract -a -s \
               --action install --eula=accept --continue-with-optional-error=yes \
               --log-dir=. --install-dir=$BASEDIR/toolkit/install --download-dir=$BASEDIR/toolkit/download \
-              --components='intel-oneapi-compiler-dpcpp-cpp'
+              --components='intel.oneapi.lin.dpcpp-cpp-compiler'
 
 ls -la $BASEDIR/toolkit/install
 
