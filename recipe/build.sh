@@ -4,30 +4,44 @@
 BASEDIR=$(pwd)
 echo "\$BASEDIR = $BASEDIR"
 ls -la $BASEDIR
-yum install --installroot $BASEDIR/repo -y  yum-utils 
-tee > /tmp/oneAPI.repo << EOF
-[oneAPI]
-name=Intel(R) oneAPI repository
-baseurl=https://yum.repos.intel.com/oneapi
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
-EOF
+
+wget -O $BASEDIR/repo/l_BaseKit_p_2021.1.0.2659.sh https://registrationcenter-download.intel.com/akdlm/irc_nas/17431/l_BaseKit_p_2021.1.0.2659.sh 
+
+mkdir $BASEDIR/toolkit
+mkdir $BASEDIR/toolkit/extract
+mkdir $BASEDIR/toolkit/install
+mkdir $BASEDIR/toolkit/download
+
+bash l_BaseKit_p_2021.1.0.2659.sh \
+        -f $BASEDIR/toolkit/extract \
+        --install-dir $BASEDIR/toolkit/install \
+        --download-dir $BASEDIR/toolkit/download
+
+
+
+#tee > /tmp/oneAPI.repo << EOF
+#[oneAPI]
+#name=Intel(R) oneAPI repository
+#baseurl=https://yum.repos.intel.com/oneapi
+#enabled=1
+#gpgcheck=1
+#repo_gpgcheck=1
+#gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+#EOF
 #mv /tmp/oneAPI.repo /etc/yum.repos.d/
-mv /tmp/oneAPI.repo $BASEDIR/repo
-
-ls -la $BASEDIR/repo
-
-yumdownloader --repofrompath oneAPI.repo,$BASEDIR/repo \
-        --destdir $BASEDIR/repo/download \
-        intel-oneapi-common-vars            \
-        intel-oneapi-common-licensing       \
-        intel-oneapi-tbb-devel              \
-        intel-oneapi-dpcpp-cpp-compiler     \
-        intel-oneapi-dev-utilities          \
-        intel-oneapi-libdpstd-devel
-
+#mv /tmp/oneAPI.repo $BASEDIR/repo
+#
+#ls -la $BASEDIR/repo
+#
+#yumdownloader --repofrompath oneAPI.repo,$BASEDIR/repo \
+#        --destdir $BASEDIR/repo/download \
+#        intel-oneapi-common-vars            \
+#        intel-oneapi-common-licensing       \
+#        intel-oneapi-tbb-devel              \
+#        intel-oneapi-dpcpp-cpp-compiler     \
+#        intel-oneapi-dev-utilities          \
+#        intel-oneapi-libdpstd-devel
+#
 #yum install intel-oneapi-common-vars        \
 #        intel-oneapi-common-licensing       \
 #        intel-oneapi-tbb-devel              \
@@ -35,8 +49,8 @@ yumdownloader --repofrompath oneAPI.repo,$BASEDIR/repo \
 #        intel-oneapi-dev-utilities          \
 #        intel-oneapi-libdpstd-devel
 
-echo "ls -la /opt/intel/oneapi"
-ls -la /opt/intel/oneapi
+#echo "ls -la /opt/intel/oneapi"
+#ls -la /opt/intel/oneapi
 
 export DPCPPROOT=/opt/intel/oneapi/compiler/latest
 
