@@ -1,7 +1,7 @@
 About daal4py
 =============
 
-Home: https://intel.github.io/scikit-learn-intelex/
+Home: https://intelpython.github.io/daal4py/
 
 Package license: Apache-2.0
 
@@ -118,6 +118,7 @@ Installing `daal4py` from the `conda-forge` channel can be achieved by adding `c
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `daal4py` can be installed with:
