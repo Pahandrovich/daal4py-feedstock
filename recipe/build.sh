@@ -12,7 +12,7 @@ mkdir $BASEDIR/toolkit/extract
 mkdir $BASEDIR/toolkit/install
 mkdir $BASEDIR/toolkit/download
 
-bash l_BaseKit_p_2021.1.0.2659.sh \
+bash $BASEDIR/repo/l_BaseKit_p_2021.1.0.2659.sh \
         -f $BASEDIR/toolkit/extract \
         --install-dir $BASEDIR/toolkit/install \
         --download-dir $BASEDIR/toolkit/download
